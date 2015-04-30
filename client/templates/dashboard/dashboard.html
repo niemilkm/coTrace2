@@ -2,13 +2,25 @@
   <div class="template-dashboard">
     <div class="page-header">
       <h1>Dashboard</h1>
+      <div class="page-header-actions">
+        <p>
+          <button class="btn btn-default pull-left searchModal">Filter Options</button>
+          <button class="btn btn-default pull-right" data-toggle="modal" data-target="#modalAdd_successStory"><i class="fa fa-plus"></i>  Success Story</button>
+          <button class="btn btn-default pull-right" data-toggle="modal" data-target="#modalAdd_testimonial"><i class="fa fa-plus"></i>  Testimonial</button>
+          <button class="btn btn-default pull-right" data-toggle="modal" data-target="#projectNew_modal"><i class="fa fa-plus"></i> Project</button>
+      </p>
+      <br><br>
+      </div>
     </div>
 
-    <ul class="list-group">
-      {{#each items}}
-        <li class="list-group-item">{{ name }} <span class="label label-default">{{ rating }}</span></li>
-      {{/each}}
-    </ul>
+    {{#if filter_type.projects}}
+      {{> projectItem}}
+    {{else }} {{#if filter_type.testimonials}}
+      Testimonials
+    {{else }} {{#if filter_type.successStories}}
+      Success Stories
+    {{/if}}{{/if}}{{/if}}
 
   </div>
+  {{> projectNew}}
 </template>

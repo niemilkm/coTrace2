@@ -1,0 +1,33 @@
+<template name="projectItem">
+  <div class="col-md-4 individualItem">
+    {{#if Template.subscriptionsReady}}
+      {{#each projects}}
+
+      <a href="/project/view/{{_id}}">
+        <div class="panel panel-default">
+          <div class="panel-heading panel-heading-custom">
+            <div class="panel-title">
+              {{name}}
+              <div class="pull-right">
+                <small>{{client.name}}</small>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body itemBody">
+            <p>
+              {{testimonialCount}} testimonials
+              <br>
+              {{successStoryCount}} success stories
+            </p>
+          </div>
+          <div class="panel-footer">
+            <div class="panel-meta pull-left">{{category.name}} <span></span> {{date.end}}</div>
+            <!--<a href="/project/view/{{_id}}" class="pull-right"><small>View Project <i class="fa fa-angle-right"></i></small></a>-->
+          </div>
+        </div>
+      </a>
+
+      {{/each}}
+    {{/if}}
+  </div>
+</template>
