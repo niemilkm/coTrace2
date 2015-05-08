@@ -1,0 +1,25 @@
+
+<template name="multiSelect">
+  <div class="multiSelectTemplate">
+    <dl class="dropdown">
+
+        <dt>
+        <a href="#">
+          <span class="hida"></span>
+          <p class="multiSel"></p>
+        </a>
+        </dt>
+
+        <dd>
+            <div class="mutliSelect">
+                <ul>
+                  {{#each tag}}
+                    <li>
+                        <input class="tagOption" type="checkbox" value="{{_id}}" id="{{name}}"/>    {{name}}</li>
+                  {{/each}}
+                </ul>
+            </div>
+        </dd>
+    </dl>
+  </div>
+</template>

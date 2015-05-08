@@ -72,12 +72,54 @@ Template.projectNew.events({
 
   'click .closeModal': function()
   {
-    Template.instance().advancedTab.set(false);
-    $('#projectName').val('');
-    $('#clientName').val('');
-    $('#categoryName').val('');
-    $('#startDatePicker').val('');
-    $('#endDatePicker').val('');
-    $('#tag').val('');
+    clearProjectModal();
+  },
+
+  'click': function()
+  {
+    if (!$(event.target).parents().hasClass("dropdown"))
+      $(".dropdown dd ul").hide();
+  },
+
+  'click [data-action="submit"]': function (e) {
+    e.preventDefault();
+
+    var projectName = $('#projectName').val().trim();
+    var clientName = $('#clientName').val();
+    var categoryName = $('#categoryName').val();
+    var startDate = $('#startDatePicker').val();
+    var endDate = $('#endDatePicker').val();
+    //var tags = set;
+    var allInputsProvided = true;
+
+    if (!projectName && allInputsProvided)
+      {alert("Project Name is Required"); allInputsProvided=false;}
+    if (!clientName && allInputsProvided)
+      {alert("Client Name is Required"); allInputsProvided=false;}
+    if (!categoryName && allInputsProvided)
+      {alert("Category is Required"); allInputsProvided=false;}
+    if (!startDate && allInputsProvided)
+      {alert("Start Date is Required"); allInputsProvided=false;}
+    if (!endDate && allInputsProvided)
+      {alert("End Date is Required"); allInputsProvided=false;}
+
+    if (allInputsProvided)
+    {
+      console.log(set);
+      var addProjectData = {
+                                projectName: projectName,
+                                clientName: clientName,
+                                categoryName: categoryName,
+                                startDate: startDate,
+                                endDate: endDate,
+                            };
+      Meteor.call("addProject", addProjectData, set);
+      console.log(addProjectData);
+      $('#projectNew_modal').hide();
+      clearProjectModal();
+
+    }
+
+
   }
 })
