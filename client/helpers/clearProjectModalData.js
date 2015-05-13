@@ -13,4 +13,5 @@ clearProjectModal = function()
   var html = '<span title="' + title + '">' + title + '</span>';
   $('dl dd ul input[type="checkbox"]').prop('checked', '');
   $('.multiSel').html(html);
+  Errors.remove({});
 }

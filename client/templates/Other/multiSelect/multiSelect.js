@@ -30,6 +30,7 @@ Template.multiSelect.events({
 
     //var tag = $(event.target).val();
     var tag = $(event.target).attr('id');
+    var tagValue = $(event.target).attr('value');
 
     title = tag + ",";
 
@@ -37,7 +38,7 @@ Template.multiSelect.events({
         var html = '<span title="' + title + '">' + title + '</span>';
         $('.multiSel').append(html);
         $(".hida").hide();
-        set.add(tag);
+        set.add(tagValue);
     }
 
 
@@ -46,7 +47,7 @@ Template.multiSelect.events({
         $('span[title="' + title + '"]').remove();
         var ret = $(".hida");
         $('.dropdown dt a').append(ret);
-        set.delete(tag);
+        set.delete(tagValue);
     }
   },
 

@@ -1,0 +1,62 @@
+
+<template name="testimonialNew">
+  <!-- Modal -->
+  <div class="modal fade" id="testimonialNew_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Add Testimonial</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            {{#if advancedTab}}
+              <div class="col-md-4">
+                <p class="left-arrow">Advanced <i class="fa fa-chevron-left"></i></p>
+                {{> sideMenu_testimonial}}
+              </div>
+            {{else}}
+              <div class="col-md-2 right-arrow">
+                <p>Advanced <i class="fa fa-chevron-right"></i></p>
+              </div>
+            {{/if}}
+            <div class="col-md-8">
+              <form>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Project Name</label>
+                    <select name="projectName" class="form-control">
+                      <option value=""></option>
+                      {{#each project}}
+                        <option value="{{_id}}">{{name}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label>Author</label>
+                    <select name="authorName" class="form-control">
+                      <option value=""></option>
+                      {{#each author}}
+                        <option value="{{_id}}">{{name}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                </div><br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Testimonial</label><br>
+                    <textarea name="startDate" class="form-control" rows="8"></textarea>
+                  </div>
+                </div><br>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-action="submit">Add Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

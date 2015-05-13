@@ -1,11 +1,11 @@
-Template.projectNew.created = function() {
+Template.testimonialNew.created = function() {
   this.advancedTab = new ReactiveVar(false);
   var today = new Date();
   this.startDate = new ReactiveVar(today);
   this.endDate = new ReactiveVar(today);
 };
 
-Template.projectNew.rendered = function() {
+Template.testimonialNew.rendered = function() {
 
   this.$('#startDatePicker').datepicker({
     showAnim: 'fadeIn',
@@ -25,21 +25,16 @@ Template.projectNew.rendered = function() {
 
 };
 
-Template.projectNew.helpers({
+Template.testimonialNew.helpers({
 
-  client: function()
+  project: function()
   {
-    return Clients.find().fetch();
+    return Projects.find().fetch();
   },
 
-  category: function()
+  author: function()
   {
-    return Categories.find().fetch();
-  },
-
-  tag: function()
-  {
-    return Tags.find().fetch();
+    return Authors.find().fetch();
   },
 
   advancedTab: function()
@@ -49,7 +44,7 @@ Template.projectNew.helpers({
 
 });
 
-Template.projectNew.events({
+Template.testimonialNew.events({
   'change #startDatePicker': function()
   {
     Template.instance().startDate.set($('#startDatePicker').datepicker('getDate'));
@@ -121,7 +116,8 @@ Template.projectNew.events({
                                 categoryId: categoryName,
                                 dateStart: startDate,
                                 dateEnd: endDate,
-                                tags: array
+                                tags: array,
+                                company: "AEXNrTCL52oDFcDmi"
                             };
 
       Meteor.call("Projects.insert", addProjectData, array);

@@ -30,7 +30,7 @@ Projects.attachSchema(new SimpleSchema({
     label: "Project Name",
     max: 200
   },
-  client: {
+  clientId: {
     type: String,
     max: 50,
     // autoform: {
@@ -46,15 +46,19 @@ Projects.attachSchema(new SimpleSchema({
     //   }
     // }
   },
-  category: {
+  categoryId: {
     type: String,
     max: 50,
     label: ""
   },
   tags: {
-    type: String,
-    max: 50
+    type: [String],
   },
+  // 'tags.$._id': {
+  //   type: String,
+  //   max: 1000,
+  //   optional: true
+  // },
   company: {
     type: String,
     max: 50
