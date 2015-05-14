@@ -10,9 +10,9 @@ Template.projectItem.created = function() {
   instance.limit = new ReactiveVar(15);
   //instance.ready = new ReactiveVar(false);
 
-  // 2. Autorun
+  //2. Autorun
 
-  // will re-run when the "limit" reactive variables changes
+  //will re-run when the "limit" reactive variables changes
   instance.autorun(function () {
 
     // get the limit

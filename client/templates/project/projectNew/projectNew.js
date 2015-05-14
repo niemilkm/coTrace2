@@ -125,6 +125,7 @@ Template.projectNew.events({
                             };
 
       Meteor.call("Projects.insert", addProjectData, array);
+      throwSuccessAlert("Project Successfully Added");
       $('#projectNew_modal').hide();
       clearProjectModal();
 
