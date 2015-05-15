@@ -1,15 +1,46 @@
 <template name="dashboard">
   <div class="template-dashboard">
-    <div class="page-header">
+    <div class="page-header" data-toggle="collapse">
       <h1>Dashboard</h1>
-      <div class="page-header-actions">
+      <div class="page-header-actions computer">
         <p>
           <button class="btn btn-default pull-left searchModal">Filter Options</button>
           <button class="btn btn-default pull-right" data-toggle="modal" data-target="#successStoryNew_modal"><i class="fa fa-plus"></i>  Success Story</button>
           <button class="btn btn-default pull-right" data-toggle="modal" data-target="#testimonialNew_modal"><i class="fa fa-plus"></i>  Testimonial</button>
           <button class="btn btn-default pull-right" data-toggle="modal" data-target="#projectNew_modal"><i class="fa fa-plus"></i> Project</button>
         </p>
-      <br><br>
+        <br><br>
+      </div>
+      <div class="page-header-actions tabletAndUnder">
+        <p>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseControl" aria-expanded="false" aria-controls="collapseControl" ><i class="fa fa-bars"></i>
+            Options
+          </button>
+          <div class="collapse" id="collapseControl">
+            <div class="well">
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-default pull-left searchModal"><i class="fa fa-filter"></i> Filter Options</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-default pull-left" data-toggle="modal" data-target="#successStoryNew_modal"><i class="fa fa-plus"></i>  Success Story</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-default pull-left" data-toggle="modal" data-target="#testimonialNew_modal"><i class="fa fa-plus"></i>  Testimonial</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-default pull-left" data-toggle="modal" data-target="#projectNew_modal"><i class="fa fa-plus"></i> Project</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p>
       </div>
     </div>
 

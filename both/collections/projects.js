@@ -59,7 +59,7 @@ Projects.attachSchema(new SimpleSchema({
   //   max: 1000,
   //   optional: true
   // },
-  company: {
+  companyId: {
     type: String,
     max: 50
   },

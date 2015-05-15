@@ -43,6 +43,11 @@ Template.sideMenu_project.events({
     $('[name=tagAdd]').val('');
   },
 
-
-
 });
+
+clearSideMenu_Project = function()
+{
+  $('[name=clientAdd]').val('');
+  $('[name=categoryAdd]').val('');
+  $('[name=tagAdd]').val('');
+}

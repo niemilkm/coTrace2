@@ -1,0 +1,58 @@
+
+<template name="admin">
+  <div class="template-admin">
+    <div class="page-header" data-toggle="collapse">
+      <h1>Admin</h1>
+      <div class="page-header-actions computer">
+        <p>
+          <button class="btn btn-default pull-right" data-action="ss"><i class="fa fa-edit"></i>  Success Story</button>
+          <button class="btn btn-default pull-right" data-action="client"><i class="fa fa-edit"></i>  Client</button>
+          <button class="btn btn-default pull-right" data-action="category"><i class="fa fa-edit"></i>  Category</button>
+          <button class="btn btn-default pull-right" data-action="tag"><i class="fa fa-edit"></i>  Tag</button>
+          <button class="btn btn-default pull-right" data-action="author"><i class="fa fa-edit"></i>  Author</button>
+        </p>
+        <br><br>
+      </div>
+      <div class="page-header-actions tabletAndUnder">
+        <p>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseControl" aria-expanded="false" aria-controls="collapseControl" ><i class="fa fa-bars"></i>
+            Options
+          </button>
+          <div class="collapse" id="collapseControl">
+            <div class="well">
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-default" data-action="author"><i class="fa fa-edit"></i>  Author</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-default" data-action="tag"><i class="fa fa-edit"></i>  Tag</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-default" data-action="category"><i class="fa fa-edit"></i>  Category</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      {{#if selection.ss}}
+        adminSS
+      {{else }} {{#if selection.client}}
+        adminClient
+      {{else }} {{#if selection.category}}
+        adminCategory
+      {{else }} {{#if selection.tag}}
+        adminTag
+      {{else }} {{#if selection.author}}
+        {{> adminAuthor}}
+      {{/if}}{{/if}}{{/if}}{{/if}}{{/if}}
+    </div>
+  </div>
+</template>

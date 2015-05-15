@@ -73,6 +73,8 @@ Template.projectNew.events({
   'click .closeModal': function()
   {
     clearProjectModal();
+    clearSideMenu_Project();
+    Template.instance().advancedTab.set(false);
   },
 
   'click': function()
@@ -124,13 +126,41 @@ Template.projectNew.events({
                                 tags: array
                             };
 
-      Meteor.call("Projects.insert", addProjectData, array);
-      throwSuccessAlert("Project Successfully Added");
-      $('#projectNew_modal').hide();
-      clearProjectModal();
+      Meteor.call("Projects.insert", addProjectData, function(error) {
+        if (!error)
+        {
+          throwSuccessAlert("Project Successfully Added");
+          clearProjectModal();
+          clearSideMenu_Project();
+          $('#projectNew_modal').hide();
+        }
+        else
+        {
+          throwError("There was an error submitting your project");
+        }
+      });
+
+      Template.instance().advancedTab.set(false);
 
     }
 
 
   }
 })
+
+clearProjectModal = function()
+{
+  $('#projectName').val('');
+  $('#clientName').val('');
+  $('#categoryName').val('');
+  $('#startDatePicker').val('');
+  $('#endDatePicker').val('');
+  $('#tag').val('');
+  set.clear();
+  title = "";
+  var html = '<span title="' + title + '">' + title + '</span>';
+  $('dl dd ul input[type="checkbox"]').prop('checked', '');
+  $('.multiSel').html(html);
+  Errors.remove({});
+  Successes.remove({});
+}

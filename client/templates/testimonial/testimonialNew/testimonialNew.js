@@ -1,5 +1,20 @@
 Template.testimonialNew.created = function() {
   this.advancedTab = new ReactiveVar(false);
+
+  var instance = this;
+  //instance.loaded = new ReactiveVar(0);
+
+  instance.autorun(function () {
+    instance.subscribe('testimonialNew');
+  });
+
+  instance.projects = function() {
+    return Projects.find().fetch()
+  },
+
+  instance.authorNames = function() {
+    return Authors.find().fetch();
+  }
 };
 
 Template.testimonialNew.rendered = function() {
@@ -10,12 +25,12 @@ Template.testimonialNew.helpers({
 
   project: function()
   {
-    return Projects.find().fetch();
+    return Template.instance().projects();
   },
 
   author: function()
   {
-    return Authors.find().fetch();
+    return Template.instance().authorNames();
   },
 
   advancedTab: function()
@@ -40,21 +55,23 @@ Template.testimonialNew.events({
   'click .closeModal': function()
   {
     clearTestimonialModal();
+    clearSideMenu_Testimonial();
+    Template.instance().advancedTab.set(false);
   },
 
   'click [data-action="submit"]': function (e) {
     e.preventDefault();
     Errors.remove({});
 
-    var projectName = $('[name=projectName]').val().trim();
-    var authorName = $('[name=authorName]').val().trim();
+    var projectId = $('[name=projectName]').val().trim();
+    var authorId = $('[name=authorName]').val().trim();
     var testimonial = $('[name=testimonial]').val().trim();
 
     var allInputsProvided = true;
 
-    if (!projectName)
+    if (!projectId)
       {throwError("Project Name is Required"); allInputsProvided=false;}
-    if (!authorName)
+    if (!authorId)
       {throwError("Author Name is Required"); allInputsProvided=false;}
     if (!testimonial)
       {throwError("Testimonial is Required"); allInputsProvided=false;}
@@ -63,8 +80,8 @@ Template.testimonialNew.events({
     {
 
       var addCollectionData = {
-                                name: projectName,
-                                clientId: clientName,
+                                projectId: projectId,
+                                authorId: authorId,
                                 testimonial: testimonial
                             };
 
@@ -72,17 +89,30 @@ Template.testimonialNew.events({
         if (!error)
         {
           throwSuccessAlert("Testimoinal Successfully Added");
-          $('#projectNew_modal').hide();
-          clearProjectModal();
+          clearTestimonialModal();
+          clearSideMenu_Testimonial();
+          $('#testimonialNew_modal').hide();
         }
         else
         {
-          clearProjectModal();
+          throwError("There was an error submitting your testimonial.")
         }
       });
+
+      Template.instance().advancedTab.set(false);
 
     }
 
 
+
   }
 })
+
+clearTestimonialModal = function()
+{
+  $('[name=projectName]').val('');
+  $('[name=authorName]').val('');
+  $('[name=testimonial]').val('');
+  Errors.remove({});
+  Successes.remove({});
+}

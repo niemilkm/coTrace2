@@ -1,6 +1,6 @@
 Meteor.methods({
   'Projects.insert': function (params) {
-    params.company = "AEXNrTCL52oDFcDmi"
+    params.companyId = "AEXNrTCL52oDFcDmi"
     Projects.insert(params);
   }
 });

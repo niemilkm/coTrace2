@@ -45,6 +45,10 @@ Template.projectItem.helpers({
   projects: function () {
     return Template.instance().projects();
   },
+
+  testimonialCount: function() {
+    return Testimonials.find({projectId: this._id}).count();
+  }
   // the subscription handle
   // isReady: function () {
   //   return Template.instance().ready.get();

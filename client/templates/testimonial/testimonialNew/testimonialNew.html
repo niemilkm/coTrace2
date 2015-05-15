@@ -20,41 +20,43 @@
                 <p>Advanced <i class="fa fa-chevron-right"></i></p>
               </div>
             {{/if}}
-            <div class="col-md-8">
-              <form>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Project Name</label>
-                    <select name="projectName" class="form-control">
-                      <option value=""></option>
-                      {{#each project}}
-                        <option value="{{_id}}">{{name}}</option>
-                      {{/each}}
-                    </select>
-                  </div>
-                  <div class="col-md-6">
-                    <label>Author</label>
-                    <select name="authorName" class="form-control">
-                      <option value=""></option>
-                      {{#each author}}
-                        <option value="{{_id}}">{{name}}</option>
-                      {{/each}}
-                    </select>
-                  </div>
-                </div><br>
-                <div class="row">
-                  <div class="col-md-12">
-                    <label>Testimonial</label><br>
-                    <textarea name="testimonial" class="form-control" rows="8"></textarea>
-                  </div>
-                </div><br>
-              </form>
-            </div>
+            {{#if Template.subscriptionsReady}}
+              <div class="col-md-8">
+                <form>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Project Name</label>
+                      <select name="projectName" class="form-control">
+                        <option value=""></option>
+                        {{#each project}}
+                          <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label>Author</label>
+                      <select name="authorName" class="form-control">
+                        <option value=""></option>
+                        {{#each author}}
+                          <option value="{{_id}}">{{firstName}} {{lastName}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                  </div><br>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label>Testimonial</label><br>
+                      <textarea name="testimonial" class="form-control" rows="8"></textarea>
+                    </div>
+                  </div><br>
+                </form>
+              </div>
+            {{/if}}
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-action="submit">Add Project</button>
+          <button type="button" class="btn btn-primary" data-action="submit">Add Testimonial</button>
         </div>
       </div>
     </div>

@@ -25,15 +25,15 @@ Testimonials.attachSchema(new SimpleSchema({
     type: String,
     max: 200000
   },
-  project: {
+  projectId: {
     type: String,
     max: 50
   },
-  author: {
+  authorId: {
     type: String,
     max: 50
   },
-  company: {
+  companyId: {
     type: String,
     max: 50
   }

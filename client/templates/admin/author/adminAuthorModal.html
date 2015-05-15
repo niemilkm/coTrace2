@@ -1,0 +1,57 @@
+<template name="adminAuthorModal">
+  <!-- Modal -->
+  <div class="modal fade" id="adminAuthorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">{{addOrEdit}} Author</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <form>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>First Name</label>
+                    <input name="firstName" type="text" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Last Name</label>
+                    <input name="lastName" type="text" class="form-control">
+                  </div>
+                </div><br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Company</label>
+                    <input name="company" type="text" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Title</label>
+                    <input name="title" type="text" class="form-control">
+                  </div>
+                </div><br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Phone Number</label>
+                    <input name="phoneNumber" type="tel" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Email</label>
+                    <input name="email" type="email" class="form-control">
+                  </div>
+                </div><br>
+              </form>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-action="submit">{{addOrEdit}} Author</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
