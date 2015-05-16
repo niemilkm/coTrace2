@@ -1,3 +1,3 @@
 Meteor.publish('authors', function() {
-  return Authors.find();
+  return Authors.find({}, {fields: {company: 0}});
 });

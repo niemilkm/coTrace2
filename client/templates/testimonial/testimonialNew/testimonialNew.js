@@ -13,7 +13,7 @@ Template.testimonialNew.created = function() {
   },
 
   instance.authorNames = function() {
-    return Authors.find().fetch();
+    return Tags.find().fetch();
   }
 };
 
@@ -62,6 +62,7 @@ Template.testimonialNew.events({
   'click [data-action="submit"]': function (e) {
     e.preventDefault();
     Errors.remove({});
+    Successes.remove({});
 
     var projectId = $('[name=projectName]').val().trim();
     var authorId = $('[name=authorName]').val().trim();
@@ -72,7 +73,7 @@ Template.testimonialNew.events({
     if (!projectId)
       {throwError("Project Name is Required"); allInputsProvided=false;}
     if (!authorId)
-      {throwError("Author Name is Required"); allInputsProvided=false;}
+      {throwError("Tag Name is Required"); allInputsProvided=false;}
     if (!testimonial)
       {throwError("Testimonial is Required"); allInputsProvided=false;}
 

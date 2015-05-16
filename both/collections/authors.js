@@ -31,7 +31,7 @@ Authors.attachSchema(new SimpleSchema({
   },
   phone: {
     type: String,
-    max: 200
+    max: 20
   },
   email: {
     type: String,

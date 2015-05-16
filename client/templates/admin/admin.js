@@ -1,6 +1,8 @@
 
 Template.admin.created = function() {
   this.selection = new ReactiveVar('');
+  Session.setDefault("addOrEdit", "EDIT");
+  Session.setDefault("adminParams", "");
 }
 
 Template.admin.helpers({

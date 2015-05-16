@@ -1,26 +1,26 @@
-<template name="adminAuthor">
-  <div class="template-adminAuthor">
+<template name="adminTag">
+  <div class="template-adminTag">
 
       <div class="row">
         <div class="col-md-6">
-          <h3>Authors
-            <button class="btn btn-primary pull-right" id="adminAuthorModal_add" data-toggle="modal" data-target="#adminAuthorModal"><i class="fa fa-plus"></i> Add Author</button>
+          <h3>Tags
+            <button class="btn btn-primary pull-right" id="adminTagModal_add" data-toggle="modal" data-target="#adminTagModal"><i class="fa fa-plus"></i> Add Tag</button>
           </h3>
         </div>
       </div><br><br>
 
       <div class="row">
         <div class="col-md-6">
-          {{#each author}}
+          {{#each tag}}
             <div class="row">
               <div class="col-md-2">
-                <button class="btn btn-default btn-sm pull-left" id="adminAuthorModal_edit" data-toggle="modal" data-target="#adminAuthorModal"><i class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-default btn-sm pull-left" id="adminTagModal_edit" data-toggle="modal" data-target="#adminTagModal"><i class="fa fa-edit"></i> Edit</button>
               </div>
               <div class="col-md-2">
                 <button class="btn btn-default btn-sm pull-left" data-action="delete"><i class="fa fa-trash"></i> Delete</button>
               </div>
               <div class="col-md-8 pull-left">
-                {{firstName}} {{lastName}}
+                {{name}}
               </div>
             </div>
           {{/each}}
@@ -28,5 +28,5 @@
       </div>
 
   </div>
-  {{> adminAuthorModal}}
+  {{> adminTagModal}}
 </template>

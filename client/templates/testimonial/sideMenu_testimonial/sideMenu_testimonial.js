@@ -13,7 +13,7 @@ Template.sideMenu_testimonial.events({
 
     var firstName = $('[name=firstName]').val().trim();
     var lastName = $('[name=lastName]').val().trim();
-    var company = $('[name=company]').val().trim();
+    var authorCompany = $('[name=authorCompany]').val().trim();
     var title = $('[name=title]').val().trim();
     var phone = $('[name=phone]').val().trim();
     var email = $('[name=email]').val().trim();
@@ -23,7 +23,7 @@ Template.sideMenu_testimonial.events({
       var params = {
                       firstName: firstName,
                       lastName: lastName,
-                      company: company,
+                      authorCompany: authorCompany,
                       title: title,
                       phone: phone,
                       email: email
@@ -50,7 +50,7 @@ clearSideMenu_Testimonial = function()
 {
   $('[name=firstName]').val('');
   $('[name=lastName]').val('');
-  $('[name=company]').val('');
+  $('[name=authorCompany]').val('');
   $('[name=title]').val('');
   $('[name=phone]').val('');
   $('[name=email]').val('');

@@ -1,37 +1,37 @@
 
-Template.adminAuthor.created = function() {
+Template.adminTag.created = function() {
 
   var instance = this;
 
   instance.autorun(function () {
-    instance.subscribe('authors');
+    instance.subscribe('tags');
   });
 
-  instance.authorNames = function() {
-    return Authors.find().fetch();
+  instance.tags = function() {
+    return Tags.find().fetch();
   }
 };
 
-Template.adminAuthor.rendered = function() {
+Template.adminTag.rendered = function() {
 
 };
 
-Template.adminAuthor.helpers({
-  author: function()
+Template.adminTag.helpers({
+  tag: function()
   {
-    return Template.instance().authorNames();
+    return Template.instance().tags();
   }
 });
 
-Template.adminAuthor.events =
+Template.adminTag.events =
 {
-  'click #adminAuthorModal_add': function(e)
+  'click #adminTagModal_add': function(e)
   {
     e.preventDefault();
     Session.set("addOrEdit", "ADD");
   },
 
-  'click #adminAuthorModal_edit': function(e)
+  'click #adminTagModal_edit': function(e)
   {
     e.preventDefault();
     Session.set("addOrEdit", "EDIT");
@@ -43,8 +43,8 @@ Template.adminAuthor.events =
     e.preventDefault();
     Errors.remove({});
     Successes.remove({});
-    var name = this.firstName + " " + this.lastName;
-    Meteor.call('Authors.remove', this._id, function(error) {
+    var name = this.name;
+    Meteor.call('Tags.remove', this._id, function(error) {
       if (!error)
         throwSuccessAlert(name + " Successfully Deleted");
       else
