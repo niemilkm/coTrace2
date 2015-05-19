@@ -2,7 +2,7 @@
 Template.adminAuthorModal.helpers({
   addOrEdit: function()
   {
-    if (Session.get("addOrEdit") === "EDIT")
+    if (Session.get("addOrEdit") === "EDIT" && Session.get("adminParams"))
     {
       var adminParams = Session.get("adminParams");
       $('input[name=firstName]').val(adminParams.firstName);

@@ -1,0 +1,35 @@
+<template name="adminAuthorModal_delete">
+  <!-- Modal -->
+  <div class="modal fade" id="adminAuthorModal_delete" tabindex="-1" role="dialog" aria-labelledby="Admin Author" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Delete Author</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              {{> modalInner}}
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-action="submit">Delete Author</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="modalInner">
+  {{#if Template.subscriptionsReady}}
+    {{#with deleteDetails}}
+      <!-- {{text.authorName}} {{text.testimonialCount}} -->
+      <p>Author <strong>{{authorName}}</strong> will be deleted along with {{testimonialCount}} testimonial(s). These testimonials are associated with <span class="text-primary" data-toggle="tooltip" data-placement="left" title="{{projectNames}}">{{projectCount}} project(s)</span>.</p>
+    {{/with}}
+  {{/if}}
+</template>

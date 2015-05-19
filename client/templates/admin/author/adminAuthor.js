@@ -2,6 +2,7 @@
 Template.adminAuthor.created = function() {
 
   var instance = this;
+  instance.subscription = new ReactiveVar("");
 
   instance.autorun(function () {
     instance.subscribe('authors');
@@ -41,14 +42,12 @@ Template.adminAuthor.events =
   'click [data-action=delete]': function(e)
   {
     e.preventDefault();
+
     Errors.remove({});
     Successes.remove({});
-    var name = this.firstName + " " + this.lastName;
-    Meteor.call('Authors.remove', this._id, function(error) {
-      if (!error)
-        throwSuccessAlert(name + " Successfully Deleted");
-      else
-        throwError("Error Deleting " + name + " - Please Try Again");
-    });
+
+    Session.set("adminParams", this._id);
+    $('#adminAuthorModal_delete').modal('show');
   }
+
 }
