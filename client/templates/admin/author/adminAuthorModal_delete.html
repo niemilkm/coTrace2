@@ -11,7 +11,11 @@
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-              {{> modalInner}}
+              {{#if Template.subscriptionsReady}}
+                {{#with deleteDetails}}
+                  <p>Author <strong>{{authorName}}</strong> will be deleted along with {{testimonialCount}} testimonial(s). These testimonials are associated with <span class="text-primary" data-toggle="tooltip" data-placement="left" title="{{projectNames}}">{{projectCount}} project(s)</span>.</p>
+                {{/with}}
+              {{/if}}
             </div>
             <div class="col-md-1"></div>
           </div>
@@ -25,11 +29,10 @@
   </div>
 </template>
 
-<template name="modalInner">
+<!-- <template name="modalInner">
   {{#if Template.subscriptionsReady}}
     {{#with deleteDetails}}
-      <!-- {{text.authorName}} {{text.testimonialCount}} -->
       <p>Author <strong>{{authorName}}</strong> will be deleted along with {{testimonialCount}} testimonial(s). These testimonials are associated with <span class="text-primary" data-toggle="tooltip" data-placement="left" title="{{projectNames}}">{{projectCount}} project(s)</span>.</p>
     {{/with}}
   {{/if}}
-</template>
+</template> -->

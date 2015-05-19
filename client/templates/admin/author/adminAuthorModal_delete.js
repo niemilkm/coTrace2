@@ -1,8 +1,5 @@
 
-Template.adminAuthorModal_delete.helpers({
-});
-
-Template.modalInner.onCreated(function() {
+Template.adminAuthorModal_delete.onCreated(function() {
   var instance = this;
   instance.authorId = new ReactiveVar(undefined);
 
@@ -19,19 +16,19 @@ Template.modalInner.onCreated(function() {
 
   instance.adminAuthorDetail = function() {
     if (instance.authorId.get()) {
-    author = Authors.findOne({_id: instance.authorId.get()});
-    projectNames = _.map(Projects.find().fetch(), function(data) {return data.name;});
-    return {
-              authorName: author.firstName + " " + author.lastName,
-              testimonialCount: Testimonials.find().count(),
-              projectNames: projectNames,
-              projectCount: projectNames.length
-            }
-          }
+      author = Authors.findOne({_id: instance.authorId.get()});
+      projectNames = _.map(Projects.find().fetch(), function(data) {return data.name;});
+      return {
+                authorName: author.firstName + " " + author.lastName,
+                testimonialCount: Testimonials.find().count(),
+                projectNames: projectNames,
+                projectCount: projectNames.length
+              }
+    }
   }
 });
 
-Template.modalInner.helpers({
+Template.adminAuthorModal_delete.helpers({
 
   deleteDetails: function()
   {
