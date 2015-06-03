@@ -96,15 +96,35 @@ Template.adminAuthorModal.events =
       else
         throwError("Author Operation Failed");
     }
+  },
+  'click .closeModal': function()
+  {
+    if (Session.get("addOrEdit") === "EDIT")
+      clearAdminAuthorModal(Session.get("adminParams"));
+    else
+      clearAdminAuthorModal();
   }
 }
 
-clearAdminAuthorModal = function()
+clearAdminAuthorModal = function(value)
 {
-  $('input[name=firstName]').val('');
-  $('input[name=lastName]').val('');
-  $('input[name=authorCompany]').val('');
-  $('input[name=title]').val('');
-  $('input[name=phone]').val('');
-  $('input[name=email]').val('');
+  if (!value)
+  {
+    $('input[name=firstName]').val('');
+    $('input[name=lastName]').val('');
+    $('input[name=authorCompany]').val('');
+    $('input[name=title]').val('');
+    $('input[name=phone]').val('');
+    $('input[name=email]').val('');
+  }
+  else
+  {
+    $('input[name=firstName]').val(value.firstName);
+    $('input[name=lastName]').val(value.lastName);
+    $('input[name=authorCompany]').val(value.authorCompany);
+    $('input[name=title]').val(value.title);
+    $('input[name=phone]').val(value.phone);
+    $('input[name=email]').val(value.email);
+  }
+
 }

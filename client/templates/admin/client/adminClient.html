@@ -1,0 +1,37 @@
+<template name="adminClient">
+  <div class="template-adminClient">
+
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Clients
+            <button class="btn btn-primary pull-right" id="adminClientModal_add" data-toggle="modal" data-target="#adminClientModal"><i class="fa fa-plus"></i> Add Client</button>
+          </h3>
+        </div>
+      </div><br><br>
+
+      {{#if Template.subscriptionsReady}}
+
+        <div class="row">
+          <div class="col-md-6">
+            {{#each client}}
+              <div class="row">
+                <div class="col-md-2">
+                  <button class="btn btn-default btn-sm pull-left" id="adminClientModal_edit" data-toggle="modal" data-target="#adminClientModal"><i class="fa fa-edit"></i> Edit</button>
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-default btn-sm pull-left" id="adminClientModal_deleteId" data-toggle="modal" data-target="#adminClientModal_delete"><i class="fa fa-trash"></i> Delete</button>
+                </div>
+                <div class="col-md-8 pull-left">
+                  {{name}}
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+
+      {{/if}}
+
+  </div>
+  {{> adminClientModal}}
+  {{> adminClientModal_delete}}
+</template>

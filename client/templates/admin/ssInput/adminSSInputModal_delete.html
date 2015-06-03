@@ -1,31 +1,26 @@
-<template name="adminTagModal">
+<template name="adminSSInputModal_delete">
   <!-- Modal -->
-  <div class="modal fade" id="adminTagModal" tabindex="-1" role="dialog" aria-labelledby="Admin Tag" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal fade" id="adminSSInputModal_delete" tabindex="-1" role="dialog" aria-labelledby="Admin SS Input" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">{{addOrEdit}} Tag</h4>
+          <h4 class="modal-title">Delete Success Story Input</h4>
         </div>
         <div class="modal-body">
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-              <form>
-                <div class="row">
-                  <div class="col-md-12">
-                    <label>Tag Name</label>
-                    <input name="name" type="text" class="form-control">
-                  </div>
-                </div><br>
-              </form>
+              {{#with deleteDetails}}
+                <p>Success Story Input - <strong>{{ques}}</strong> - will be deleted.</p>
+              {{/with}}
             </div>
             <div class="col-md-1"></div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-action="submit" data-dismiss="modal">{{addOrEdit}} Tag</button>
+          <button type="button" class="btn btn-primary" data-action="delete" data-dismiss="modal">Delete SS Input</button>
         </div>
       </div>
     </div>

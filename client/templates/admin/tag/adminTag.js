@@ -2,12 +2,13 @@
 Template.adminTag.created = function() {
 
   var instance = this;
+  instance.subscription = new ReactiveVar("");
 
   instance.autorun(function () {
     instance.subscribe('tags');
   });
 
-  instance.tags = function() {
+  instance.tagNames = function() {
     return Tags.find().fetch();
   }
 };
@@ -19,7 +20,7 @@ Template.adminTag.rendered = function() {
 Template.adminTag.helpers({
   tag: function()
   {
-    return Template.instance().tags();
+    return Template.instance().tagNames();
   }
 });
 
@@ -38,17 +39,12 @@ Template.adminTag.events =
     Session.set("adminParams", this);
   },
 
-  'click [data-action=delete]': function(e)
+  'click #adminTagModal_deleteId': function(e)
   {
     e.preventDefault();
     Errors.remove({});
     Successes.remove({});
-    var name = this.name;
-    Meteor.call('Tags.remove', this._id, function(error) {
-      if (!error)
-        throwSuccessAlert(name + " Successfully Deleted");
-      else
-        throwError("Error Deleting " + name + " - Please Try Again");
-    });
+    Session.set("adminParams", this._id);
   }
+
 }

@@ -34,7 +34,17 @@ Template.adminAuthorModal_delete.helpers({
   {
     return Template.instance().adminAuthorDetail();
   },
+});
 
-
-
-})
+Template.adminAuthorModal_delete.events = {
+  'click [data-action="delete"]': function(e)
+  {
+    console.log("in delete code");
+    e.preventDefault();
+    var testimonialIds = Testimonials.find().fetch().map(function(data) { return _id;});
+    var authorId = Session.get("adminParams");
+    $('#adminAuthorModal_delete').hide();
+    Template.instance().authorId.set(undefined);
+    Meteor.call("adminAuthorDelete", authorId, testimonialIds);
+  }
+}

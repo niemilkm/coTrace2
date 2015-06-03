@@ -23,10 +23,11 @@ var SSInputsSchema = new SimpleSchema({
       type: String,
       max: 200000
     },
-    ans: {
-      type: String,
-      max: 200000
-    }
+    // ans: {
+    //   type: String,
+    //   max: 200000,
+    //   removeEmptyStrings: false
+    // }
 });
 
 SuccessStoryInputs.attachSchema(new SimpleSchema({
@@ -38,3 +39,21 @@ SuccessStoryInputs.attachSchema(new SimpleSchema({
     type: [SSInputsSchema]
   }
 }));
+
+// Meteor.startup( function() {
+//  SuccessStoryInputs.insert({
+//    company: "AEXNrTCL52oDFcDmi",
+//    SSInputs: [
+//                   {
+//                     num: 1,
+//                     index: 1,
+//                     ques: "This is question #1"
+//                   },
+//                   {
+//                     num: 2,
+//                     index: 2,
+//                     ques: "This is question #2"
+//                   }
+//               ]
+//   });
+// });

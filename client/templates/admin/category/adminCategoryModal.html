@@ -1,11 +1,11 @@
-<template name="adminTagModal">
+<template name="adminCategoryModal">
   <!-- Modal -->
-  <div class="modal fade" id="adminTagModal" tabindex="-1" role="dialog" aria-labelledby="Admin Tag" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal fade" id="adminCategoryModal" tabindex="-1" role="dialog" aria-labelledby="Admin Category" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">{{addOrEdit}} Tag</h4>
+          <h4 class="modal-title">{{addOrEdit}} Category</h4>
         </div>
         <div class="modal-body">
           <div class="row">
@@ -14,7 +14,7 @@
               <form>
                 <div class="row">
                   <div class="col-md-12">
-                    <label>Tag Name</label>
+                    <label>Name</label>
                     <input name="name" type="text" class="form-control">
                   </div>
                 </div><br>
@@ -25,7 +25,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-action="submit" data-dismiss="modal">{{addOrEdit}} Tag</button>
+          <button type="button" class="btn btn-primary" data-action="submit" data-dismiss="modal">{{addOrEdit}} Category</button>
         </div>
       </div>
     </div>

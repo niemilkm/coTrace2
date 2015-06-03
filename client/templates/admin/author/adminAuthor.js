@@ -39,15 +39,12 @@ Template.adminAuthor.events =
     Session.set("adminParams", this);
   },
 
-  'click [data-action=delete]': function(e)
+  'click #adminAuthorModal_deleteId': function(e)
   {
     e.preventDefault();
-
     Errors.remove({});
     Successes.remove({});
-
     Session.set("adminParams", this._id);
-    $('#adminAuthorModal_delete').modal('show');
   }
 
 }

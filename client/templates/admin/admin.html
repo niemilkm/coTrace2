@@ -43,11 +43,11 @@
 
     <div>
       {{#if selection.ss}}
-        adminSS
+        {{> adminSSInput}}
       {{else }} {{#if selection.client}}
-        adminClient
+        {{> adminClient}}
       {{else }} {{#if selection.category}}
-        adminCategory
+        {{> adminCategory}}
       {{else }} {{#if selection.tag}}
         {{> adminTag}}
       {{else }} {{#if selection.author}}

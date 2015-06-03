@@ -17,7 +17,7 @@
                 <button class="btn btn-default btn-sm pull-left" id="adminTagModal_edit" data-toggle="modal" data-target="#adminTagModal"><i class="fa fa-edit"></i> Edit</button>
               </div>
               <div class="col-md-2">
-                <button class="btn btn-default btn-sm pull-left" data-action="delete"><i class="fa fa-trash"></i> Delete</button>
+                <button class="btn btn-default btn-sm pull-left" id="adminTagModal_deleteId" data-toggle="modal" data-target="#adminTagModal_delete"><i class="fa fa-trash"></i> Delete</button>
               </div>
               <div class="col-md-8 pull-left">
                 {{name}}
@@ -29,4 +29,5 @@
 
   </div>
   {{> adminTagModal}}
+  {{> adminTagModal_delete}}
 </template>

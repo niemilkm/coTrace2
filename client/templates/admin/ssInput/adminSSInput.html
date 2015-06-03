@@ -1,0 +1,40 @@
+<template name="adminSSInput">
+  <div class="template-adminSSInput">
+
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Success Story Inputs
+            <button class="btn btn-primary pull-right" id="adminSSInputModal_add" data-toggle="modal" data-target="#adminSSInputModal"><i class="fa fa-plus"></i> Add SS Input</button>
+          </h3>
+        </div>
+      </div><br><br>
+
+      {{#if Template.subscriptionsReady}}
+
+        <div class="row">
+          <div class="col-md-6">
+            {{#each ssInput}}
+              <div class="row">
+                <div class="col-md-2">
+                  <button class="btn btn-default btn-sm pull-left" id="adminSSInputModal_edit" data-toggle="modal" data-target="#adminSSInputModal"><i class="fa fa-edit"></i> Edit</button>
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-default btn-sm pull-left" id="adminSSInputModal_deleteId" data-toggle="modal" data-target="#adminSSInputModal_delete"><i class="fa fa-trash"></i> Delete</button>
+                </div>
+                <div class="col-md-1 pull-left">
+                  {{num}}
+                </div>
+                <div class="col-md-7 pull-left">
+                  {{ques}}
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+
+      {{/if}}
+
+  </div>
+  {{> adminSSInputModal}}
+  {{> adminSSInputModal_delete}}
+</template>

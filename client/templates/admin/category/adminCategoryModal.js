@@ -1,5 +1,5 @@
 
-Template.adminTagModal.helpers({
+Template.adminCategoryModal.helpers({
   addOrEdit: function()
   {
     if (Session.get("addOrEdit") === "EDIT" && Session.get("adminParams"))
@@ -9,14 +9,14 @@ Template.adminTagModal.helpers({
     }
     else
     {
-      clearAdminTagModal();
+      clearAdminCategoryModal();
     }
     return Session.get("addOrEdit");
   },
 
 });
 
-Template.adminTagModal.events =
+Template.adminCategoryModal.events =
 {
   'click [data-action=submit]': function(e)
   {
@@ -28,7 +28,7 @@ Template.adminTagModal.events =
     var allInputsProvided = true;
 
     if (!name)
-      {throwError("Tag Name is Required"); allInputsProvided=false;}
+      {throwError("Name is Required"); allInputsProvided=false;}
 
     if (allInputsProvided)
     {
@@ -38,12 +38,12 @@ Template.adminTagModal.events =
                 };
       if (addOrEdit === "ADD")
       {
-        Meteor.call("Tags.insert", params, function(error) {
+        Meteor.call("Categories.insert", params, function(error) {
           if (!error)
           {
             throwSuccessAlert(name + " Successfully Added");
-            clearAdminTagModal();
-            $('#adminTagModal').hide();
+            clearAdminCategoryModal();
+            $('#adminCategoryModal').hide();
           }
           else
           {
@@ -54,37 +54,41 @@ Template.adminTagModal.events =
       else if (addOrEdit === "EDIT")
       {
         var id = Session.get("adminParams")._id;
-        Meteor.call("Tags.update", params, id, function(error) {
+        Meteor.call("Categories.update", params, id, function(error) {
           if (!error)
           {
             throwSuccessAlert(name + " Successfully Updated");
-            clearAdminTagModal();
-            $('#adminTagModal').hide();
+            clearAdminCategoryModal();
+            $('#adminCategoryModal').hide();
           }
           else
           {
-            throwError(tagName + " Update Failed - Please Try Again");
+            throwError(name + " Update Failed - Please Try Again");
           }
         });
       }
       else
-        throwError("Tag Operation Failed");
+        throwError("Category Operation Failed");
     }
   },
-
   'click .closeModal': function()
   {
     if (Session.get("addOrEdit") === "EDIT")
-      clearAdminTagModal(Session.get("adminParams"));
+      clearAdminCategoryModal(Session.get("adminParams"));
     else
-      clearAdminTagModal();
+      clearAdminCategoryModal();
   }
 }
 
-clearAdminTagModal = function(value)
+clearAdminCategoryModal = function(value)
 {
   if (!value)
+  {
     $('input[name=name]').val('');
+  }
   else
+  {
     $('input[name=name]').val(value.name);
+  }
+
 }
